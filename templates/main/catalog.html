@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+
+{% block catalog-active %}active{% endblock %}
+
+{% block body %}
+
+<section class="catalog">
+    <div class="catalog__heading">
+        <h1 class="catalog__title">Наш автопарк</h1>
+        <p class="catalog__text">Мы предоставляем нашим клиентам самые невероятные эмоции от вождения. Вот почему в нашем парке есть только автомобили мирового класса.</p>
+    </div>
+
+    <div class="catalog__filter">
+        <a href="" class="filter__param">ALL</a>
+        <a href="" class="filter__param">PREMIUM</a>
+        <a href="" class="filter__param">SUPERCAR</a>
+        <a href="" class="filter__param">HYPERCAR</a>
+        <a href="" class="filter__param">CABRIOLET</a>
+        <a href="" class="filter__param">COUPE</a>
+    </div>
+
+    <div class="catalog__gallery">
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mclaren5k.jpg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#premium</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mercedes.webp' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#premium</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/lamborghini.jpeg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#coupe</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mclaren-p1-supercar-yellow-945.jpg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#supercar</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mclaren.jpg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#hypercar</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mclaren.jpg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#cabriolet</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/mercedes.webp' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#cabriolet</span>
+        </div>
+        <div class="gallery__card">
+            <img class="gallery__image" src="{% static 'images/lamborghini.jpeg' %}" alt="car">
+            <span class="image__label-info">McLaren - 14k/сутки</span>
+            <span class="image__label-tag">#supercar</span>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,325 @@
+@font-face {
+    font-family: "Menlo";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Menlo"),
+         url("../fonts/Menlo-Regular.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "NeueMachina";
+    font-style: normal;
+    font-weight: 300;
+    src: local("NeueMachina"),
+         url("../fonts/NeueMachina-Regular.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "NeueMachina";
+    font-style: normal;
+    font-weight: 500;
+    src: local("NeueMachina"),
+         url("../fonts/NeueMachina-Medium.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "NeueMachina";
+    font-style: normal;
+    font-weight: 600;
+    src: local("NeueMachina"),
+         url("../fonts/NeueMachina-Bold.woff2") format("woff2"),
+}
+
+:root {
+    --gray: #6b6b6b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: "NeueMachina";
+    font-weight: 300;
+    cursor: default;
+}
+
+html, body {
+    background-color: black;
+}
+
+section, header, footer {
+    padding: 1.5% 3%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.line {
+    margin: 0 3%;
+    color: #444444;
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.header__logo {
+    width: 100px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.header__register {
+    border-bottom: 1px solid white;
+}
+
+.header__link {
+    color: var(--gray);
+    font-size: 14px;
+    margin-right: 15px;
+    transition: all 0.5s ease;
+}
+
+.header__link:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.header__nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 4%;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    height: 100%;
+}
+
+.banner__left {
+    width: 55%;
+}
+
+.banner__right {
+    width: 45%;
+}
+
+.banner__title {
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 90px;
+}
+
+.banner__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.banner__left-cars {
+    display: flex;
+}
+
+.car__label {
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    border-radius: 15px;
+    padding: 5px 13px;
+    font-weight: 500;
+}
+
+.car__count {
+    position: absolute;
+    bottom: 21px;
+    right: 60px;
+    background-color: none;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.bigger__count {
+    right: 40px;
+}
+
+.banner__car {
+    border-radius: 25px;
+    width: 95%;
+    height: 270px;
+}
+
+.bigger-car {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.car__icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 21px;
+    right: 35px;
+}
+
+.bigger__icon {
+    right: 15px;
+}
+
+.booking {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.booking__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 9.4%;
+}
+
+.booking__description {
+    max-width: 60%;
+    line-height: 23px;
+    color: #9d9d9d;
+}
+
+.booking__link {
+    width: 100%;
+}
+
+.booking__link > a {
+    background-color: white;
+    color: black;
+    padding: 25px 90px 23px 90px;
+    float: right;
+    border-radius: 35px;
+    font-weight: bold;
+    border: 2px solid black;
+    transition: all 0.7s ease;
+}
+
+.booking__link > a:hover {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+}
+
+/* catalog */
+
+.catalog__title {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.catalog__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.catalog__text {
+    width: 50%;
+    font-size: 19px;
+    color: #9d9d9d;
+}
+
+.catalog__filter {
+    margin: 30px 0;
+}
+
+.filter__param {
+    color:#9d9d9d;
+    border: 1px solid #9d9d9d;
+    border-radius: 25px;
+    padding: 10px 15px;
+    margin-right: 5px;
+}
+
+.filter__param:hover {
+    border: 1px solid white;
+    color: white;
+}
+
+.filter__param:active {
+   outline: 5px solid white;
+}
+
+.catalog__gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 60px 0 40px 0;
+}
+
+.gallery__card {
+    width: 24%;
+    position: relative;
+}
+
+.gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    outline: 1px solid #9d9d9d;
+    border: 13px solid black;
+    border-radius: 25px;
+    transition: all 0.5s ease;
+}
+
+.image__label-info {
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 30px;
+    left: 25px;
+    border-radius: 15px;
+    padding: 5px 13px;
+    font-weight: 500;
+}
+
+.image__label-tag {
+    background-color: white;
+    color: black;
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    border-radius: 15px;
+    padding: 5px 13px;
+    font-weight: 500;
+}
+
+.active {
+    color: white;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}

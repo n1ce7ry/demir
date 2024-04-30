@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a href="{% url 'home_page' %}" class="header__logo">D E M I R</a>
+        <nav class="header__nav">
+            <div class="header__links">
+                <a href="{% url 'catalog' %}" class="header__link {% block catalog-active %}{% endblock %}">Каталог</a>
+                <a href="{% url 'about' %}" class="header__link {% block about-active %}{% endblock %}">О компании</a>
+                <a href="{% url 'contacts' %}" class="header__link {% block contacts-active %}{% endblock %}">Контакты</a>
+            </div>
+            <div class="header__register">
+                <a href="">ВОЙТИ / ЗАРЕГИСТРИРОВАТЬСЯ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a>
+            </div>
+        </nav>
+    </header>
+
+    <hr class="line">
+
+    {% block body %}
+    {% endblock %}
+
+    <hr class="line">
+
+    <footer class="footer">
+        <div class="footer__text">2024 © Прокат автомобилей в Екатеринбурге</div>
+        <div class="footer__text"><a href="tel:88005558033">+7(800)555-80-33</a> <a href="mailto:e-k2@bk.ru">e-k2@bk.ru</a></div>
+        <div class="footer__text">Екатеринбург, ул. Энгельса д.36 ДД Филитц, офис 414/3</div>
+    </footer>
+
+</body>
+</html>

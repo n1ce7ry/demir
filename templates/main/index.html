@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+
+{% block body %}
+
+<section class="banner">
+    <div class="banner__left">
+        <h1 class="banner__title">Арендуйте Эксклюзивные Автомобили</h1>
+        <div class="banner__left-cars">
+            <div class="banner__container">
+                <img src="{% static 'images/lamborghini.jpeg' %}" alt="lamborghini" class="banner__car">
+                <span class="car__label">Lamborghini</span>
+                <span class="car__count">9</span>
+                <img src="{% static 'images/car-icon.png' %}" class="car__icon">
+            </div>
+            <div class="banner__container">
+                <img src="{% static 'images/mclaren.jpg' %}" alt="mclaren" class="banner__car">
+                <span class="car__label">McLaren</span>
+                <span class="car__count">6</span>
+                <img src="{% static 'images/car-icon.png' %}" class="car__icon">
+            </div>
+        </div>
+    </div>
+    <div class="banner__right">
+        <div class="banner__container">
+            <img src="{% static 'images/mercedes.webp' %}" alt="mercedes" class="bigger-car">
+            <span class="car__label">Mercedes</span>
+            <span class="car__count bigger__count">16</span>
+            <img src="{% static 'images/car-icon.png' %}" class="car__icon bigger__icon">
+        </div>
+    </div>
+
+</section>
+
+<section class="booking">
+    <h3 class="booking__title">Роскошь и про-<br>изводительность</h3>
+    <div class="booking__description">
+        Откройте для себя идеальное решение для ваших деловых перевозок, побалуйте себя роскошным свадебным путешествием или отправьтесь в незабываемое захватывающее путешествие - испытайте превосходство благодаря
+с нашим непревзойденным сервисом.
+    </div>
+    <div class="booking__link">
+        <a href="">ЗАКАЖИТЕ СЕЙЧАС</a>
+    </div>
+</section>
+
+{% endblock %}
