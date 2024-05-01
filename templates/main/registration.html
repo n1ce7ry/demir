@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+
+{% block body %}
+<section class="content registration">
+
+    <h1 class="registration__title">Добро пожаловать в Demir!</h1>
+
+    <form method="POST" class="registration__form">
+        {{ error }}
+        {% csrf_token %}
+        {{ form.login }} <br>
+        {{ form.first_name }} <br>
+        {{ form.last_name }} <br>
+        {{ form.phone }} <br>
+        {{ form.password }} <br>
+        {{ form.passport_details }} <br>
+        {{ form.email }} <br>
+        <button class="registration__button" type="submit">Зарегистрироваться!</button>
+    </form>
+
+</section>
+{% endblock %}

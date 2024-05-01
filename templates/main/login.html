@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+
+{% block body %}
+<section class="login content">
+
+    <h1 class="login__title">Рады видеть вас снова!</h1>
+
+    <form method="POST" class="login__form">
+        {% csrf_token %}
+        {{ form.username }} <br>
+        {{ form.password }} <br>
+        <button class="login__button" type="submit">Войти!</button>
+    </form>
+
+</section>
+{% endblock %}

@@ -17,7 +17,13 @@
                 <a href="{% url 'contacts' %}" class="header__link {% block contacts-active %}{% endblock %}">Контакты</a>
             </div>
             <div class="header__register">
-                <a href="">ВОЙТИ / ЗАРЕГИСТРИРОВАТЬСЯ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a>
+                {% if user.is_authenticated %}
+                    <a href="">{{ user.username }} <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a> /
+                    <a href="{% url 'logout' %}">ВЫЙТИ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a>
+                {% else %}
+                    <a href="{% url 'login' %}">ВОЙТИ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a> / 
+                    <a href="{% url 'registration' %}">ЗАРЕГИСТРИРОВАТЬСЯ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a>
+                {% endif %}
             </div>
         </nav>
     </header>

@@ -12,14 +12,12 @@
             <div class="banner__container">
                 <img src="{% static 'images/lamborghini.jpeg' %}" alt="lamborghini" class="banner__car">
                 <span class="car__label">Lamborghini</span>
-                <span class="car__count">9</span>
-                <img src="{% static 'images/car-icon.png' %}" class="car__icon">
+                <span class="car__count">от 22к/сутки</span>
             </div>
             <div class="banner__container">
                 <img src="{% static 'images/mclaren.jpg' %}" alt="mclaren" class="banner__car">
                 <span class="car__label">McLaren</span>
-                <span class="car__count">6</span>
-                <img src="{% static 'images/car-icon.png' %}" class="car__icon">
+                <span class="car__count">от 19к/сутки</span>
             </div>
         </div>
     </div>
@@ -27,8 +25,7 @@
         <div class="banner__container">
             <img src="{% static 'images/mercedes.webp' %}" alt="mercedes" class="bigger-car">
             <span class="car__label">Mercedes</span>
-            <span class="car__count bigger__count">16</span>
-            <img src="{% static 'images/car-icon.png' %}" class="car__icon bigger__icon">
+            <span class="car__count bigger__count">от 10к/сутки</span>
         </div>
     </div>
 
@@ -41,7 +38,7 @@
 с нашим непревзойденным сервисом.
     </div>
     <div class="booking__link">
-        <a href="">ЗАКАЖИТЕ СЕЙЧАС</a>
+        <a href="{% url 'catalog' %}">ЗАКАЖИТЕ СЕЙЧАС</a>
     </div>
 </section>
 
