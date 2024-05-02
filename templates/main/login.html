@@ -10,6 +10,7 @@
     <h1 class="login__title">Рады видеть вас снова!</h1>
 
     <form method="POST" class="login__form">
+        {{ form.errors }}
         {% csrf_token %}
         {{ form.username }} <br>
         {{ form.password }} <br>

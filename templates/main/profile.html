@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+
+{% block body %}
+<section class="content profile">
+    <h1 class="profile__title">Ваш профиль</h1>
+    <div class="profile__data">
+        <img src="{% static 'images/user.png' %}" alt="avatar" class="profile__avatar">
+        <div class="profile__user">
+            <p class="user__info">{{ user.first_name }}</p>
+            <p class="user__info">{{ user.last_name }}</p>
+            <p class="user__info">{{ user.phone }}</p>
+            <p class="user__info">{{ user.email }}</p>
+            <p class="user__info">{{ user.passport_details }}</p>
+        </div>
+    </div>
+
+    <h2 class="profile__subtitle">Ваши брони</h2>
+
+    <div class="profile__booking">
+        <div class="profile__application">
+            <div class="profile__application-id application__param">#194321</div>
+            <div class="profile__application-start application__param">12.04.2024</div>
+            <div class="profile__application-end application__param">15.04.2024</div>
+            <div class="profile__application-car application__param">McLaren</div>
+            <div class="profile__application-price application__param">16000</div>
+            <div class="profile__application-status application__param">В обработке</div>
+        </div>
+        <div class="profile__application">
+            <div class="profile__application-id application__param">#194321</div>
+            <div class="profile__application-start application__param">12.04.2024</div>
+            <div class="profile__application-end application__param">15.04.2024</div>
+            <div class="profile__application-car application__param">McLaren</div>
+            <div class="profile__application-price application__param">16000</div>
+            <div class="profile__application-status application__param">В обработке</div>
+        </div>
+        <div class="profile__application">
+            <div class="profile__application-id application__param">#194321</div>
+            <div class="profile__application-start application__param">12.04.2024</div>
+            <div class="profile__application-end application__param">15.04.2024</div>
+            <div class="profile__application-car application__param">McLaren</div>
+            <div class="profile__application-price application__param">16000</div>
+            <div class="profile__application-status application__param">В обработке</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

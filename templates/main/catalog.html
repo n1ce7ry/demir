@@ -15,57 +15,26 @@
     </div>
 
     <div class="catalog__filter">
-        <a href="" class="filter__param">ALL</a>
-        <a href="" class="filter__param">PREMIUM</a>
-        <a href="" class="filter__param">SUPERCAR</a>
-        <a href="" class="filter__param">HYPERCAR</a>
-        <a href="" class="filter__param">CABRIOLET</a>
-        <a href="" class="filter__param">COUPE</a>
+        <a href="" data-filter="all" class="filter__param">ALL</a>
+        {% for tag in tags %}
+            <a data-filter="{{ tag.name }}" class="filter__param">{{ tag.name|upper }}</a>
+        {% endfor %}
     </div>
 
     <div class="catalog__gallery">
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mclaren5k.jpg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#premium</span>
+        {% for car in cars %}
+        <div class="gallery__card {{ car.tag.name }}">
+            <img class="gallery__image" src="{{ car.image.url }}" alt="{{ car.name }}">
+            <span class="image__label-info">{{ car.manufacturer }} {{ car.name }} - {{ car.price }}к/сутки</span>
+            <span class="image__label-tag">#{{ car.tag.name }}</span>
         </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mercedes.webp' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#premium</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/lamborghini.jpeg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#coupe</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mclaren-p1-supercar-yellow-945.jpg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#supercar</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mclaren.jpg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#hypercar</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mclaren.jpg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#cabriolet</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/mercedes.webp' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#cabriolet</span>
-        </div>
-        <div class="gallery__card">
-            <img class="gallery__image" src="{% static 'images/lamborghini.jpeg' %}" alt="car">
-            <span class="image__label-info">McLaren - 14k/сутки</span>
-            <span class="image__label-tag">#supercar</span>
-        </div>
+        {% endfor %}
     </div>
 
 </section>
 
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}

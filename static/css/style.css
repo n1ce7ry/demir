@@ -176,7 +176,8 @@ ul {
 .banner__car {
     border-radius: 25px;
     width: 95%;
-    height: 270px;
+    height: 350px;
+    object-fit: cover;
 }
 
 .bigger-car {
@@ -261,7 +262,7 @@ ul {
     color: white;
 }
 
-.filter__param:active {
+.filter__param-active {
    outline: 5px solid white;
 }
 
@@ -275,6 +276,12 @@ ul {
 .gallery__card {
     width: 24%;
     position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+.hide {
+    transform: scale(0);
+    display: none;
 }
 
 .gallery__image {
@@ -371,15 +378,66 @@ ul {
 .login__button, .registration__button {
     border-radius: 35px;
     padding: 20px 25px;
-    border: 1px solid white;
     width: 25%;
+    border: none;
     margin-bottom: 20px;
     background-color: black;
     color: white;
     outline: 3px solid var(--gray);
     font-size: 18px;
-    font-family: "Menlo", sans-serif;
     margin-top: 40px;
+    font-family: "Menlo", sans-serif;
+    transition: all 0.5s ease;
+}
+
+.registration__button:hover, .login__button:hover {
+    background-color: white;
+    outline: 3px solid var(--gray);
+    color: black;
+}
+
+/* profile */
+
+.profile {
+    margin-top: 40px;
+}
+
+.profile__title {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.profile__data {
+    display: flex;
+    gap: 50px;
+}
+
+.user__info {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.profile__avatar {
+    width: 12%;
+    height: 12%;
+}
+
+.profile__subtitle {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+.profile__application {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #9d9d9d;
+    padding: 15px 35px;
+    border-radius: 25px;
+    margin-bottom: 20px;
 }
 
 /* footer */

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm
 from django.contrib.auth import logout
+from .forms import RegistrationForm
+from .models import Car, Tag
 
 
 def home_page(request):
@@ -8,7 +9,9 @@ def home_page(request):
 
 
 def catalog(request):
-    return render(request, 'main/catalog.html')
+    cars = Car.objects.all()
+    tags = Tag.objects.all()
+    return render(request, 'main/catalog.html', context={'cars': cars, 'tags': tags})
 
 
 def about(request):
@@ -19,12 +22,19 @@ def contacts(request):
     return render(request, 'main/contacts.html')
 
 
+def profile(request):
+    return render(request, 'main/profile.html')
+
+
 def registration(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = request.POST.get("login")
+            user.username = form.cleaned_data['login']
+            user.first_name = form.cleaned_data['fio'].split(' ')[1]
+            user.last_name = form.cleaned_data['fio'].split(' ')[0]
+            user.set_password(form.cleaned_data['password'])
             user.save()
             return redirect("login")
         else:

@@ -18,7 +18,7 @@
             </div>
             <div class="header__register">
                 {% if user.is_authenticated %}
-                    <a href="">{{ user.username }} <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a> /
+                    <a href="{% url 'profile' %}">{{ user.username }} <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a> /
                     <a href="{% url 'logout' %}">ВЫЙТИ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a>
                 {% else %}
                     <a href="{% url 'login' %}">ВОЙТИ <img class="arrow" src="{% static 'images/arrow.png'%}" alt="arrow"></a> / 
@@ -40,6 +40,9 @@
         <div class="footer__text"><a href="tel:88005558033">+7(800)555-80-33</a> <a href="mailto:e-k2@bk.ru">e-k2@bk.ru</a></div>
         <div class="footer__text">Екатеринбург, ул. Энгельса д.36 ДД Филитц, офис 414/3</div>
     </footer>
+
+    {% block js %}
+    {% endblock %}
 
 </body>
 </html>
