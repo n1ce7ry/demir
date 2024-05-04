@@ -4,32 +4,67 @@
 
 {% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
 
+{% block extrastyles %}
+<link rel="stylesheet" href="{% static 'css/hystmodal.min.css' %}">
+{% endblock %}
+
 {% block catalog-active %}active{% endblock %}
 
 {% block body %}
 
-<section class="catalog">
+<section class="catalog content">
     <div class="catalog__heading">
         <h1 class="catalog__title">Наш автопарк</h1>
-        <p class="catalog__text">Мы предоставляем нашим клиентам самые невероятные эмоции от вождения. Вот почему в нашем парке есть только автомобили мирового класса.</p>
+        <p class="catalog__text">Мы предоставляем нашим клиентам самые невероятные эмоции от вождения. Вот почему в
+            нашем парке есть только автомобили мирового класса.</p>
     </div>
 
     <div class="catalog__filter">
         <a href="" data-filter="all" class="filter__param">ALL</a>
         {% for tag in tags %}
-            <a data-filter="{{ tag.name }}" class="filter__param">{{ tag.name|upper }}</a>
+        <a data-filter="{{ tag.name }}" class="filter__param">{{ tag.name|upper }}</a>
         {% endfor %}
     </div>
 
     <div class="catalog__gallery">
-        {% for car in cars %}
-        <div class="gallery__card {{ car.tag.name }}">
-            <img class="gallery__image" src="{{ car.image.url }}" alt="{{ car.name }}">
-            <span class="image__label-info">{{ car.manufacturer }} {{ car.name }} - {{ car.price }}к/сутки</span>
-            <span class="image__label-tag">#{{ car.tag.name }}</span>
-        </div>
-        {% endfor %}
+        {% if user.is_authenticated %}
+            {% for car in cars %}
+                <div data-hystmodal="#_{{ car.id }}" class="gallery__card {{ car.tag.name }}">
+                    <img class="gallery__image" src="{{ car.image.url }}" alt="{{ car.name }}">
+                    <span class="image__label-info">{{ car.manufacturer }} {{ car.name }} - {{ car.price }}/сутки</span>
+                    <span class="image__label-tag">#{{ car.tag.name }}</span>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for car in cars %}
+                <a href="{% url 'registration' %}" class="gallery__card {{ car.tag.name }}">
+                    <img class="gallery__image" src="{{ car.image.url }}" alt="{{ car.name }}">
+                    <span class="image__label-info">{{ car.manufacturer }} {{ car.name }} - {{ car.price }}к/сутки</span>
+                    <span class="image__label-tag">#{{ car.tag.name }}</span>
+                </a>
+            {% endfor %}
+        {% endif %}
     </div>
+
+    {% for car in cars %}
+    <div class="hystmodal" id="_{{ car.id }}" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window hystmodal__window--long" role="dialog" aria-modal="true">
+                <form method="POST" action="{% url 'add_proposal' %}" class="modal">
+                    <h1 class="modal__title">{{ car.manufacturer }} {{ car.name }}</h1>
+                    {% csrf_token %}
+                    <label for="start">Дата начала аренды:</label><br>
+                    <input onchange="calculatePrice('{{ car.id }}', '{{ car.price }}')" class="modal__date" type="date" id="start_{{ car.id }}" value="{{ today }}" name="trip-start" min="{{ today }}"/><br>
+                    <label for="End">Дата конца аренды:</label><br>
+                    <input onchange="calculatePrice('{{ car.id }}', '{{ car.price }}')" class="modal__date" type="date" id="end_{{ car.id }}" value="{{ tomorrow }}" name="trip-end" min="{{ tomorrow }}"/><br>
+                    <input type="hidden" id="price_{{ car.id }}" name="price" value="{{ car.price }}">
+                    <input type="hidden" name="car_id" value="{{ car.id }}">
+                    <button id="total_{{ car.id }}" class="modal__booking" type="submit">Забронировать за {{ car.price }} рублей</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 </section>
 
@@ -37,4 +72,5 @@
 
 {% block js %}
 <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/hystmodal.min.js' %}"></script>
 {% endblock %}

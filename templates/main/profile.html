@@ -21,30 +21,20 @@
     <h2 class="profile__subtitle">Ваши брони</h2>
 
     <div class="profile__booking">
+        {% for proposal in proposals %}
         <div class="profile__application">
-            <div class="profile__application-id application__param">#194321</div>
-            <div class="profile__application-start application__param">12.04.2024</div>
-            <div class="profile__application-end application__param">15.04.2024</div>
-            <div class="profile__application-car application__param">McLaren</div>
-            <div class="profile__application-price application__param">16000</div>
-            <div class="profile__application-status application__param">В обработке</div>
+            <div class="profile__application-id application__param">#{{ proposal.id }}</div>
+            <div class="profile__application-start application__param">{{ proposal.date_start }}</div>
+            <div class="profile__application-end application__param">{{ proposal.date_end }}</div>
+            <div class="profile__application-car application__param">{{ proposal.car.manufacturer }} {{ proposal.car.name }}</div>
+            <div class="profile__application-price application__param">{{ proposal.total_price }} рублей</div>
+            <div class="profile__application-status application__param">{{ proposal.status }}</div>
+            <form action="{% url 'delete_proposal' proposal.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="profile__application-status application__param application__delete">УДАЛИТЬ</button>
+            </form>
         </div>
-        <div class="profile__application">
-            <div class="profile__application-id application__param">#194321</div>
-            <div class="profile__application-start application__param">12.04.2024</div>
-            <div class="profile__application-end application__param">15.04.2024</div>
-            <div class="profile__application-car application__param">McLaren</div>
-            <div class="profile__application-price application__param">16000</div>
-            <div class="profile__application-status application__param">В обработке</div>
-        </div>
-        <div class="profile__application">
-            <div class="profile__application-id application__param">#194321</div>
-            <div class="profile__application-start application__param">12.04.2024</div>
-            <div class="profile__application-end application__param">15.04.2024</div>
-            <div class="profile__application-car application__param">McLaren</div>
-            <div class="profile__application-price application__param">16000</div>
-            <div class="profile__application-status application__param">В обработке</div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

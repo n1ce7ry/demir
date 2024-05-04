@@ -294,6 +294,10 @@ ul {
     transition: all 0.5s ease;
 }
 
+.gallery__image:hover, .image__label-info, .image__label-tag {
+    cursor: pointer;
+}
+
 .image__label-info {
     background-color: white;
     color: black;
@@ -440,9 +444,234 @@ ul {
     margin-bottom: 20px;
 }
 
+.application__delete {
+    text-decoration: underline;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+/* modal window */
+
+.modal {
+    background-color: black;
+    padding: 20px 50px;
+    border-radius: 25px;
+    outline: 1px solid #9d9d9d;
+    text-align: center;
+}
+
+.modal__title {
+    font-size: 38px;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.modal__date {
+    background-color: black;
+    font-size: 18px;
+    margin: 10px 0 30px 0;
+}
+
+.modal > label {
+    font-size: 26px;
+}
+
+.modal__booking {
+    border-radius: 35px;
+    padding: 20px 25px;
+    width: 85%;
+    border: none;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    outline: 3px solid var(--gray);
+    font-size: 18px;
+    margin-top: 40px;
+    transition: all 0.5s ease;
+}
+
+.modal__booking:hover {
+    background-color: white;
+    outline: 3px solid var(--gray);
+    color: black;
+}
+
+.hystmodal__window {
+    background: none;
+}
+
 /* footer */
 
 .footer {
     display: flex;
     justify-content: space-between;
 }
+
+/* adaptive */
+
+@media (width: 390px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header__nav {
+        margin-left: 0;
+    }
+    .header__logo {
+        font-size: 12px;
+        margin: 10px 0;
+    }
+    .header__link {
+        font-size: 8px;
+    }
+    .header__links {
+        padding-bottom: 5px;
+    }
+    .header__register {
+        font-size: 10px;
+        padding-top: 5px;
+    }
+    .header__register > a {
+        font-size: 10px;
+    }
+    .arrow {
+        width: 6px;
+        height: 6px;
+    }
+    .footer__text {
+        font-size: 8px;
+    }
+    .banner {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .banner__title {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .banner__left {
+        width: 100%;
+    }
+    .banner__right {
+        width: 100%;
+    }
+    .banner__left-cars {
+        flex-direction: column;
+    }
+    .banner__car {
+        height: 200px;
+        width: 100%;
+    }
+    .banner__container {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .booking {
+        flex-direction: column;
+    }
+    .booking__title {
+        display: none;
+    }
+    .booking__description {
+        display: none;
+    }
+    .bigger-car {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+    .car__label {
+        font-size: 14px;
+    }
+    .car__count {
+        font-size: 14px;
+        right: 20px;
+    }
+    .login {
+        margin-top: 20px;
+        min-height: 85vh;
+    }
+    .login__title, .registration__title, .profile__title, .catalog__title {
+        font-size: 32px;
+    }
+    .login__input, .registration__input, .login__button, .registration__button {
+        width: 80%;
+        font-size: 14px;
+    }
+    .registration__button {
+        margin-top: 20px;
+    }
+    .login__input::placeholder, .registration__input::placeholder, .login__button::placeholder, .registration__button::placeholder {
+        font-size: 12px;
+    }
+    .login__button {
+        margin-top: 20px;
+    }
+    .profile {
+        margin-top: 20px;
+    }
+    .profile__avatar {
+        display: none;
+    }
+    .profile__title {
+        margin-bottom: 20px;
+    }
+    .profile__subtitle {
+        margin: 10px 0 20px 0;
+        font-size: 20px;
+    }
+    .user__info {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .profile__application {
+        font-size: 8px;
+        padding: 10px 15px;
+    }
+    .catalog__heading {
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .catalog__text {
+        font-size: 12px;
+        width: 65%;
+    }
+    .catalog__title {
+        margin-bottom: 20px;
+    }
+    .catalog__heading {
+        margin: 20px 0;
+    }
+    .catalog__filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .catalog__gallery {
+        margin: 20px 0;
+        gap: 10px;
+    }
+    .filter__param {
+        font-size: 12px;
+        margin-right: 0;
+    }
+    .image__label-info, .image__label-tag {
+        font-size: 6px;
+        padding: 3px 9px;
+    }
+    .image__label-tag {
+        top: 10px;
+        left: 15px;
+    }
+    .image__label-info {
+        bottom: 10px;
+        left: 15px;
+    }
+    .gallery__card {
+        width: 48.5%;
+    }
+    .gallery__image {
+        border: 3px solid black;
+    }
+  }

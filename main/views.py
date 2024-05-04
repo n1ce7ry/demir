@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from .forms import RegistrationForm
 from .models import Car, Tag
+from rental.models import Proposal
+import datetime
 
 
 def home_page(request):
@@ -11,7 +13,14 @@ def home_page(request):
 def catalog(request):
     cars = Car.objects.all()
     tags = Tag.objects.all()
-    return render(request, 'main/catalog.html', context={'cars': cars, 'tags': tags})
+    today = datetime.date.today()
+    tomorrow = datetime.date.today() + datetime.timedelta(days=1)
+    return render(request, 'main/catalog.html', context={
+        'cars': cars,
+        'tags': tags,
+        'today': today.strftime("%Y-%m-%d"),
+        'tomorrow': tomorrow.strftime("%Y-%m-%d"),
+    })
 
 
 def about(request):
@@ -23,7 +32,8 @@ def contacts(request):
 
 
 def profile(request):
-    return render(request, 'main/profile.html')
+    proposals = Proposal.objects.filter(user=request.user.id)
+    return render(request, 'main/profile.html', context={'proposals': proposals})
 
 
 def registration(request):

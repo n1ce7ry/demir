@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from .models import CustomUser
+from rental.models import Proposal
 
 
 class LoginForm(AuthenticationForm):
@@ -36,4 +37,32 @@ class RegistrationForm(forms.ModelForm):
             'password': forms.PasswordInput(attrs={'class': 'registration__input', 'minlength': '6', 'placeholder': 'Пароль'}),
             'passport_details': forms.TextInput(attrs={'class': 'registration__input', 'minlength': '10', 'placeholder': 'Серия и номер паспорта'}),
             'email': forms.EmailInput(attrs={'class': 'registration__input', 'pattern': '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})', 'placeholder': 'Почта'}),
+        }
+
+
+class ProposalForm(forms.ModelForm):
+    class Meta:
+        model = Proposal
+        fields = ['date_start', 'date_end']
+        widgets = {
+            'date_start': forms.DateInput(
+                attrs={
+                    'onchange': "calculatePrice('{{ car.id }}', '{{ car.price }}')",
+                    'class': 'modal__date',
+                    'id': 'start_{{ car.id }}',
+                    'value':'{{ today }}',
+                    'name': 'trip-start',
+                    'min': '{{ today }}',
+                }
+            ),
+            'date_start': forms.DateInput(
+                attrs={
+                    'onchange': "calculatePrice('{{ car.id }}', '{{ car.price }}')",
+                    'class': 'modal__date',
+                    'id': 'end_{{ car.id }}',
+                    'value':'{{ tomorrow }}',
+                    'name': 'trip-end',
+                    'min': '{{ tomorrow }}',
+                }
+            ),
         }
