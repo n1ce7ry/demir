@@ -6,6 +6,7 @@ class ProposalStatusEnum(models.TextChoices):
     CREATED = 'Создано'
     IN_PROCESS = 'В обработке'
     COMPLETED = 'Завершено'
+    REFUSED = 'Отклонено'
 
 
 class Proposal(models.Model):
@@ -18,7 +19,7 @@ class Proposal(models.Model):
         choices=ProposalStatusEnum.choices,
         default=ProposalStatusEnum.CREATED,
         max_length=32,
-        verbose_name="Статус аренда"
+        verbose_name="Статус аренды"
     )
 
     

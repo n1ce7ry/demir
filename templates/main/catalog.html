@@ -37,7 +37,7 @@
             {% endfor %}
         {% else %}
             {% for car in cars %}
-                <a href="{% url 'registration' %}" class="gallery__card {{ car.tag.name }}">
+                <a href="{% url 'login' %}" class="gallery__card {{ car.tag.name }}">
                     <img class="gallery__image" src="{{ car.image.url }}" alt="{{ car.name }}">
                     <span class="image__label-info">{{ car.manufacturer }} {{ car.name }} - {{ car.price }}к/сутки</span>
                     <span class="image__label-tag">#{{ car.tag.name }}</span>
