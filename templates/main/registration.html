@@ -2,7 +2,8 @@
 
 {% load static %}
 
-{% block title %}Demir - Аренда Авто По Доступной Цене{% endblock title %}
+{% block title %}Регистрация Demir | Создайте Личный Кабинет для Аренды Эксклюзивных Автомобилей
+{% endblock title %}
 
 {% block body %}
 <section class="content registration">
@@ -10,7 +11,13 @@
     <h1 class="registration__title">Добро пожаловать в Demir!</h1>
 
     <form method="POST" class="registration__form">
-        {{ error }}
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p class="error">** {{ error }} **</p>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
         {% csrf_token %}
         {{ form.login }} <br>
         {{ form.fio }} <br>

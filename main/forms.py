@@ -14,6 +14,9 @@ class LoginForm(AuthenticationForm):
         self.fields['username'].widget = forms.TextInput(
             attrs={'class': 'login__input', 'placeholder': 'Логин'}
         )
+        self.fields['username'].error_messages.update({
+            'unique': 'Пожалуйста, выберите другой логин.',
+        })
         self.fields['username'].label = False
         self.fields['password'].widget = forms.PasswordInput(
             attrs={'class': 'login__input', 'placeholder':'Пароль'}
@@ -38,6 +41,13 @@ class RegistrationForm(forms.ModelForm):
             'passport_details': forms.TextInput(attrs={'class': 'registration__input', 'minlength': '10', 'placeholder': 'Серия и номер паспорта'}),
             'email': forms.EmailInput(attrs={'class': 'registration__input', 'pattern': '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})', 'placeholder': 'Почта'}),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+
+        self.fields['login'].error_messages.update({
+            'unique': 'Пожалуйста, выберите другой логин.',
+        })
 
 
 class ProposalForm(forms.ModelForm):

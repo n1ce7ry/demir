@@ -501,6 +501,12 @@ ul {
     background: none;
 }
 
+.error {
+    font-size: 20px;
+    color: red;
+    margin-bottom: 20px;
+}
+
 /* footer */
 
 .footer {
@@ -673,5 +679,8 @@ ul {
     }
     .gallery__image {
         border: 3px solid black;
+    }
+    .application__delete {
+        font-size: 8px;
     }
   }

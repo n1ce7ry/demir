@@ -53,7 +53,6 @@ def registration(request):
                 "main/registration.html",
                 {
                     "form": form,
-                    "error": form.errors,
                 },
             )
     else:
