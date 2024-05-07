@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'main.CustomUser'
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = reverse_lazy('catalog')
 LOGIN_URL = reverse_lazy('login')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

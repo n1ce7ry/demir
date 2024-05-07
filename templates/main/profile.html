@@ -21,6 +21,14 @@
     <h2 class="profile__subtitle">Ваши брони</h2>
 
     <div class="profile__booking">
+        <div class="profile__labels">
+            <p class="profile__booking-label">id</p>
+            <p class="profile__booking-label">Дата начала</p>
+            <p class="profile__booking-label">Дата конца</p>
+            <p class="profile__booking-label">Автомобиль</p>
+            <p class="profile__booking-label">Цена</p>
+            <p class="profile__booking-label">Статус брони</p>
+        </div>
         {% for proposal in proposals %}
         <div class="profile__application">
             <div class="profile__application-id application__param">#{{ proposal.id }}</div>
@@ -31,7 +39,8 @@
             <div class="profile__application-status application__param">{{ proposal.status }}</div>
             <form action="{% url 'delete_proposal' proposal.id %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="profile__application-status application__param application__delete">УДАЛИТЬ</button>
+                <button type="submit"
+                    class="profile__application-status application__param application__delete">УДАЛИТЬ</button>
             </form>
         </div>
         {% endfor %}

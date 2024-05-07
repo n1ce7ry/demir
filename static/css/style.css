@@ -184,6 +184,7 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 25px;
+    object-fit: cover;
 }
 
 .booking {
@@ -275,6 +276,7 @@ ul {
 
 .gallery__card {
     width: 24%;
+    height: 300px;
     position: relative;
     transition: transform 0.5s ease-in-out;
 }
@@ -438,7 +440,7 @@ ul {
 .profile__subtitle {
     font-size: 42px;
     font-weight: bold;
-    margin: 50px 0;
+    margin: 50px 0 90px 0;
 }
 
 .profile__application {
@@ -452,6 +454,30 @@ ul {
     margin-bottom: 20px;
 }
 
+.profile__booking {
+    position: relative;
+}
+
+.profile__labels {
+    position: absolute;
+    top: -40px;
+    left: 45px;
+    display: flex;
+    align-items: center;
+    width: 88%;
+    justify-content: space-between;
+}
+
+.application__param {
+    width: 14%;
+}
+
+.profile__booking-label {
+    font-size: 20px;
+    font-weight: bold;
+    width: 14%;
+}
+
 .application__delete {
     text-decoration: underline;
     background: none;
@@ -463,7 +489,7 @@ ul {
 
 .modal {
     background-color: black;
-    padding: 20px 50px;
+    padding: 30px 50px 20px 50px;
     border-radius: 25px;
     outline: 1px solid #9d9d9d;
     text-align: center;
@@ -688,6 +714,7 @@ ul {
     }
     .gallery__card {
         width: 48.5%;
+        height: 120px;
     }
     .gallery__image {
         border: 3px solid black;

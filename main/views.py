@@ -1,13 +1,9 @@
+import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from .forms import RegistrationForm
 from .models import Car, Tag
 from rental.models import Proposal
-import datetime
-
-
-def home_page(request):
-    return render(request, 'main/index.html')
 
 
 def catalog(request):
@@ -21,14 +17,6 @@ def catalog(request):
         'today': today.strftime("%Y-%m-%d"),
         'tomorrow': tomorrow.strftime("%Y-%m-%d"),
     })
-
-
-def about(request):
-    return render(request, 'main/about.html')
-
-
-def contacts(request):
-    return render(request, 'main/contacts.html')
 
 
 def profile(request):
@@ -69,3 +57,15 @@ def registration(request):
 def user_logout(request):
     logout(request)
     return redirect('home_page')
+
+
+def home_page(request):
+    return render(request, 'main/index.html')
+
+
+def about(request):
+    return render(request, 'main/about.html')
+
+
+def contacts(request):
+    return render(request, 'main/contacts.html')

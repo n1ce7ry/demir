@@ -24,7 +24,7 @@ class Proposal(models.Model):
 
     
     def __str__(self) -> str:
-        return f"{self.user.login} заказал {self.car.manufacturer} {self.car.name} на сумму {self.total_price}"
+        return f"#{self.id} {self.user.login} заказал {self.car.manufacturer} {self.car.name} на сумму {self.total_price}"
 
 
     class Meta:
